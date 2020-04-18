@@ -24,19 +24,19 @@ type Game struct {
 func (g *Game) Update(screen *ebiten.Image) error {
 	g.player.handleHorizontal()
 	g.player.handleVertical()
-	//g.player.MovePlayer(g.player.isCollidingWith(g.floor))
-	//g.player.MovePlayer(g.player.isCollidingWith(g.ceiling))
-	//g.player.MovePlayer(g.player.isCollidingWith(g.middle))
-	g.player.MovePlayer(g.player.isCollidingWith(g.tower))
+	g.player.isCollidingWith(g.floor)
+	g.player.isCollidingWith(g.ceiling)
+	g.player.isCollidingWith(g.middle)
+	g.player.isCollidingWith(g.tower)
 	return nil
 }
 
 // Draw - draws the screen
 func (g *Game) Draw(screen *ebiten.Image) {
-	//screen.DrawImage(g.floor.image, g.floor.ops)
-	//screen.DrawImage(g.middle.image, g.middle.ops)
+	screen.DrawImage(g.floor.image, g.floor.ops)
+	screen.DrawImage(g.middle.image, g.middle.ops)
 	screen.DrawImage(g.tower.image, g.tower.ops)
-	//screen.DrawImage(g.ceiling.image, g.ceiling.ops)
+	screen.DrawImage(g.ceiling.image, g.ceiling.ops)
 	screen.DrawImage(g.player.image, g.player.ops)
 }
 
